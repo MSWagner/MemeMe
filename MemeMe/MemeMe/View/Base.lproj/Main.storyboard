@@ -32,32 +32,68 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YmQ-PD-hAl"/>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="IOM-MQ-puA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="pMc-33-0g4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="qi1-FL-Vh1"/>
+                                </constraints>
                                 <items>
-                                    <navigationItem title="Choose a picture" id="1R9-S3-5Bs">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="rcM-kf-rRM">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="ptO-XX-yzF">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <barButtonItem systemItem="action" id="wRh-fT-JVb">
+                                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="0.0"/>
+                                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VzW-rD-c2h"/>
+                                    <barButtonItem systemItem="cancel" id="dsk-Xm-aeL">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
                                 </items>
-                            </navigationBar>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AL8-sG-c3p">
+                                <rect key="frame" x="101.5" y="31" width="171.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kUP-LX-fwy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bej-Mb-heo">
+                                <rect key="frame" x="166" y="135" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BOTTOM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LA7-uD-vt7">
+                                <rect key="frame" x="152" y="560" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="AL8-sG-c3p" firstAttribute="centerX" secondItem="pMc-33-0g4" secondAttribute="centerX" id="0lI-8u-OG9"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3OL-KM-2D7"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8SW-tj-tOW"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OO7-dJ-Zx6"/>
+                            <constraint firstItem="pMc-33-0g4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VnS-Yc-LYU"/>
+                            <constraint firstItem="kUP-LX-fwy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b3y-Dr-rFy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="top" constant="20" id="beQ-Mp-20H"/>
+                            <constraint firstItem="eTX-2b-Fpy" firstAttribute="top" secondItem="kUP-LX-fwy" secondAttribute="bottom" id="fMQ-18-HZQ"/>
+                            <constraint firstItem="kUP-LX-fwy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="m8n-iY-Ktp"/>
+                            <constraint firstItem="pMc-33-0g4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qEz-nh-nEN"/>
+                            <constraint firstItem="AL8-sG-c3p" firstAttribute="bottom" secondItem="pMc-33-0g4" secondAttribute="bottom" constant="-10" id="w55-5a-joM"/>
+                            <constraint firstItem="kUP-LX-fwy" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="bottom" id="wyH-8w-1wp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
         </scene>
     </scenes>
 </document>
