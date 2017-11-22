@@ -165,5 +165,12 @@ extension GifMakerVC: UITextFieldDelegate {
         hideKeyboard()
         return true
     }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text == "" {
+            let placeString = textField == topTextfield ? "TOP" : "BOTTOM"
+            textField.text = "ADD \(placeString) TEXT"
+        }
+    }
 }
 
