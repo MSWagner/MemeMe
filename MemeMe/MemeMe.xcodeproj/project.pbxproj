@@ -35,6 +35,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D333601D1FC5C3EB0005BEFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D38272611FBE415600424478 = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +65,9 @@
 				D38272791FBE415600424478 /* Info.plist */,
 				D38272811FBE417200424478 /* Controller */,
 				D38272801FBE416900424478 /* View */,
-				D382727F1FBE416400424478 /* Model */,
+				D333601D1FC5C3EB0005BEFC /* Model */,
 			);
 			path = MemeMe;
-			sourceTree = "<group>";
-		};
-		D382727F1FBE416400424478 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D38272801FBE416900424478 /* View */ = {
