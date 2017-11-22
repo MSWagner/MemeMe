@@ -33,6 +33,10 @@ class GifMakerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         proveImageSources()
+
+        topTextfield.delegate = self
+        bottomTextfield.delegate = self
+
         setTextAttributes(topTextfield)
         setTextAttributes(bottomTextfield)
     }
@@ -114,7 +118,7 @@ class GifMakerVC: UIViewController {
         view.endEditing(true)
     }
 
-    // MARK: - Textfield Functions
+    // MARK: - Textfield Attribute Function
     private func setTextAttributes(_ textfield: UITextField) {
         let memeTextAttributes:[String: Any] = [
             NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
@@ -148,6 +152,18 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension GifMakerVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        hideKeyboard()
+        return true
     }
 }
 
