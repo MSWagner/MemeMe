@@ -9,8 +9,6 @@
 import UIKit
 
 class GifMakerVC: UIViewController {
-    @IBOutlet weak var toolBarBottomConstraint: NSLayoutConstraint!
-
     // MARK: - Top Bar Outlets
     @IBOutlet weak var titleLabel: UILabel!
 
@@ -35,6 +33,8 @@ class GifMakerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         proveImageSources()
+        setTextAttributes(topTextfield)
+        setTextAttributes(bottomTextfield)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -112,6 +112,17 @@ class GifMakerVC: UIViewController {
 
     @objc private func hideKeyboard() {
         view.endEditing(true)
+    }
+
+    // MARK: - Textfield Functions
+    private func setTextAttributes(_ textfield: UITextField) {
+        let memeTextAttributes:[String: Any] = [
+            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedStringKey.strokeWidth.rawValue: -4]
+        textfield.defaultTextAttributes = memeTextAttributes
+        textfield.textAlignment = .center
     }
 }
 
