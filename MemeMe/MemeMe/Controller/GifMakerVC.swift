@@ -16,7 +16,6 @@ class GifMakerVC: UIViewController {
     @IBOutlet weak var topTextfield: UITextField!
     @IBOutlet weak var bottomTextfield: UITextField!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var placeholderImage: UIImageView!
 
     // MARK: - Bottom Bar Outlets
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -34,19 +33,21 @@ class GifMakerVC: UIViewController {
 
     // MARK: - Meme Properties
     private var meme: Meme?
+    private var isMemeImageComplete: Bool = false
 
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         proveImageSources()
+        setToLaunchState()
 
         configureTextfields()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        shareButton.isEnabled = meme != nil ? true : false
-    
+        proveIsMemeImageReady()
+
         subscribeToKeyboardNotifications()
         subscribeToDeviceOrientationNotifications()
 
@@ -81,10 +82,31 @@ class GifMakerVC: UIViewController {
     }
 
     @IBAction func onShare(_ sender: Any) {
-        if let meme = meme {
-            let activityVC = UIActivityViewController(activityItems: [meme.memeImage], applicationActivities: [])
-            present(activityVC, animated: true, completion: nil)
+        let memeImage = generateMemedImage()
+
+        let activityVC = UIActivityViewController(activityItems: [memeImage], applicationActivities: [])
+        present(activityVC, animated: true, completion: nil)
+
+        activityVC.completionWithItemsHandler = { activity, completed, items, error in
+            if completed && error == nil {
+                self.save()
+                return
+            }
         }
+    }
+
+    @IBAction func onCancel(_ sender: Any) {
+        setToLaunchState()
+    }
+
+    // MARK: - UI Setup
+    private func setToLaunchState() {
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "placeholder")
+        topTextfield.text = ""
+        bottomTextfield.text = ""
+        self.navigationItem.title = "Choose your image"
+        shareButton.isEnabled = false
     }
     
     // MARK: - Image Functions
@@ -108,6 +130,16 @@ class GifMakerVC: UIViewController {
         return tmpPicker
     }
 
+    private func proveIsMemeImageReady() {
+        if (topTextfield.text != "ADD TOP TEXT") && (bottomTextfield.text != "ADD BOTTOM TEXT") {
+            self.navigationItem.title = "Share your Meme"
+            shareButton.isEnabled = true
+        } else {
+            self.navigationItem.title = "Add Text"
+            shareButton.isEnabled = false
+        }
+    }
+
     private func save() {
         guard let image = imageView.image, let topText = topTextfield.text, let bottomText = bottomTextfield.text else {
             return
@@ -115,7 +147,6 @@ class GifMakerVC: UIViewController {
 
         let memeImage = generateMemedImage()
         meme = Meme(topText: topText, bottomText: bottomText, image: image, memeImage: memeImage)
-        shareButton.isEnabled = meme != nil ? true : false
     }
 
     private func generateMemedImage() -> UIImage {
@@ -211,13 +242,11 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         }
         imageView.contentMode = .scaleAspectFit
         imageView.image = chosenImage
-        imageView.backgroundColor = UIColor.black
-        
-        placeholderImage.isHidden = true
+
         topTextfield.isHidden = false
         bottomTextfield.isHidden = false
         self.navigationItem.title = "Add Text"
-        save()
+        proveIsMemeImageReady()
 
         self.dismiss(animated: true, completion: nil)
     }
@@ -239,16 +268,12 @@ extension GifMakerVC: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        save()
         if textField.text == "" {
             let placeString = textField == topTextfield ? "TOP" : "BOTTOM"
             textField.text = "ADD \(placeString) TEXT"
             return
         }
-
-        if (topTextfield.text != "ADD TOP TEXT") && (bottomTextfield.text != "ADD BOTTOM TEXT") {
-            self.navigationItem.title = "Share your Meme"
-        }
+        proveIsMemeImageReady()
     }
 }
 
