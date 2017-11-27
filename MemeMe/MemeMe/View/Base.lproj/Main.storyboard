@@ -86,7 +86,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="ADD TOP TEXT" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="W1n-TR-DPS" userLabel="Top Textfield">
-                                <rect key="frame" x="20" y="94" width="335" height="50"/>
+                                <rect key="frame" x="20" y="84" width="335" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Rek-jN-VOH"/>
@@ -112,7 +112,9 @@
                             <constraint firstItem="kUP-LX-fwy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b3y-Dr-rFy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="top" constant="20" id="beQ-Mp-20H"/>
                             <constraint firstItem="2Tb-6R-w1O" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="e94-eO-pPf"/>
-                            <constraint firstItem="W1n-TR-DPS" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="bottom" constant="30" id="fkk-3u-b1i"/>
+                            <constraint firstItem="W1n-TR-DPS" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="bottom" constant="10" id="fSI-aL-RAg"/>
+                            <constraint firstItem="W1n-TR-DPS" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="bottom" constant="20" id="fkk-3u-b1i"/>
+                            <constraint firstItem="eTX-2b-Fpy" firstAttribute="top" secondItem="zxr-mx-I8K" secondAttribute="bottom" constant="10" id="kDk-ik-xWi"/>
                             <constraint firstItem="kUP-LX-fwy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="m8n-iY-Ktp"/>
                             <constraint firstItem="pMc-33-0g4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qEz-nh-nEN"/>
                             <constraint firstItem="zxr-mx-I8K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="v6P-a7-ZC2"/>
@@ -120,6 +122,37 @@
                             <constraint firstItem="kUP-LX-fwy" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="bottom" id="wyH-8w-1wp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fSI-aL-RAg"/>
+                                <exclude reference="0cP-g9-Dp5"/>
+                                <exclude reference="kDk-ik-xWi"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="fSI-aL-RAg"/>
+                                <include reference="kDk-ik-xWi"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="fSI-aL-RAg"/>
+                                <include reference="kDk-ik-xWi"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="fkk-3u-b1i"/>
+                                <include reference="0cP-g9-Dp5"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="fkk-3u-b1i"/>
+                                <include reference="0cP-g9-Dp5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="albumButton" destination="lgN-uM-QTK" id="QxL-dN-bzS"/>
