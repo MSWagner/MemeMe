@@ -103,8 +103,8 @@ class GifMakerVC: UIViewController {
     private func setToLaunchState() {
         imageView.contentMode = .scaleAspectFit
         imageView.image = #imageLiteral(resourceName: "placeholder")
-        topTextfield.text = ""
-        bottomTextfield.text = ""
+        topTextfield.text = "ADD TOP TEXT"
+        bottomTextfield.text = "ADD BOTTOM TEXT"
         self.navigationItem.title = "Choose your image"
         shareButton.isEnabled = false
     }
