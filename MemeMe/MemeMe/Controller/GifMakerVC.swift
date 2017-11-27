@@ -9,6 +9,9 @@
 import UIKit
 
 class GifMakerVC: UIViewController {
+    // MARK: - Navigation Bar Outlets
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+
     // MARK: - Image View Outlets
     @IBOutlet weak var topTextfield: UITextField!
     @IBOutlet weak var bottomTextfield: UITextField!
@@ -29,18 +32,21 @@ class GifMakerVC: UIViewController {
         }
     }
 
+    // MARK: - Meme Properties
+    private var meme: Meme?
+
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         proveImageSources()
-        self.navigationController?.navigationBar.backgroundColor = UIColor.gray
 
         configureTextfields()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        shareButton.isEnabled = meme != nil ? true : false
+    
         subscribeToKeyboardNotifications()
         subscribeToDeviceOrientationNotifications()
 
@@ -75,7 +81,10 @@ class GifMakerVC: UIViewController {
     }
 
     @IBAction func onShare(_ sender: Any) {
-        imageView.image = generateMemedImage()
+        if let meme = meme {
+            let activityVC = UIActivityViewController(activityItems: [meme.memeImage], applicationActivities: [])
+            present(activityVC, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Image Functions
@@ -99,7 +108,16 @@ class GifMakerVC: UIViewController {
         return tmpPicker
     }
 
-    private func generateMemedImage() -> UIImage {        
+    private func save() {
+        guard let image = imageView.image, let topText = topTextfield.text, let bottomText = bottomTextfield.text else {
+            return
+        }
+
+        let memeImage = generateMemedImage()
+        meme = Meme(topText: topText, bottomText: bottomText, image: image, memeImage: memeImage)
+    }
+
+    private func generateMemedImage() -> UIImage {
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
@@ -111,7 +129,7 @@ class GifMakerVC: UIViewController {
 
     private func cropImage(_ image: UIImage) -> UIImage {
         let yAxisImageView = imageView.frame.origin.y
-        let cropRect = CGRect(x: 0, y: yAxisImageView, width: imageView.frame.width, height: imageView.frame.height)
+        let cropRect = CGRect(x: 0, y: yAxisImageView + 1, width: imageView.frame.width, height: imageView.frame.height - 2)
         let cgImage = image.cgImage?.cropping(to: cropRect)
         let newImage = UIImage(cgImage: cgImage!)
 
@@ -197,6 +215,7 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         topTextfield.isHidden = false
         bottomTextfield.isHidden = false
         self.navigationItem.title = "Add Text"
+        save()
 
         self.dismiss(animated: true, completion: nil)
     }
@@ -218,9 +237,15 @@ extension GifMakerVC: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
+        save()
         if textField.text == "" {
             let placeString = textField == topTextfield ? "TOP" : "BOTTOM"
             textField.text = "ADD \(placeString) TEXT"
+            return
+        }
+
+        if (topTextfield.text != "ADD TOP TEXT") && (bottomTextfield.text != "ADD BOTTOM TEXT") {
+            self.navigationItem.title = "Share your Meme"
         }
     }
 }

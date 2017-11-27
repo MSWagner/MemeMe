@@ -68,7 +68,7 @@
                                     <constraint firstAttribute="width" constant="220" id="F9A-7l-e5b"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="ADD BOTTOM TEXT" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="zxr-mx-I8K" userLabel="Bottom Textfield">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="ADD BOTTOM TEXT" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="zxr-mx-I8K" userLabel="Bottom Textfield">
                                 <rect key="frame" x="30" y="553" width="315" height="50"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -105,7 +105,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="ADD TOP TEXT" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="W1n-TR-DPS" userLabel="Top Textfield">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="ADD TOP TEXT" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="W1n-TR-DPS" userLabel="Top Textfield">
                                 <rect key="frame" x="20" y="84" width="335" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -216,6 +216,7 @@
                         <outlet property="cameraButton" destination="LSB-8f-Chp" id="XZY-fm-yCJ"/>
                         <outlet property="imageView" destination="kUP-LX-fwy" id="qEB-SW-KVf"/>
                         <outlet property="placeholderImage" destination="2Tb-6R-w1O" id="Da9-ZM-l8D"/>
+                        <outlet property="shareButton" destination="wRh-fT-JVb" id="SjO-V2-bi9"/>
                         <outlet property="topTextfield" destination="W1n-TR-DPS" id="Pbf-3U-cCh"/>
                     </connections>
                 </viewController>
