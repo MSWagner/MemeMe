@@ -57,13 +57,6 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YmQ-PD-hAl"/>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="AL8-sG-c3p">
-                                <rect key="frame" x="102" y="75" width="171" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kUP-LX-fwy">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="0.81472439236111116" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -216,10 +209,10 @@
                     <connections>
                         <outlet property="albumButton" destination="lgN-uM-QTK" id="QxL-dN-bzS"/>
                         <outlet property="bottomTextfield" destination="zxr-mx-I8K" id="Mq4-Go-KcO"/>
+                        <outlet property="bottomToolbar" destination="eTX-2b-Fpy" id="IHL-e6-AUr"/>
                         <outlet property="cameraButton" destination="LSB-8f-Chp" id="XZY-fm-yCJ"/>
                         <outlet property="imageView" destination="kUP-LX-fwy" id="qEB-SW-KVf"/>
                         <outlet property="placeholderImage" destination="2Tb-6R-w1O" id="Da9-ZM-l8D"/>
-                        <outlet property="titleLabel" destination="AL8-sG-c3p" id="bDg-tU-aKQ"/>
                         <outlet property="topTextfield" destination="W1n-TR-DPS" id="Pbf-3U-cCh"/>
                     </connections>
                 </viewController>

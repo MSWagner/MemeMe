@@ -9,9 +9,6 @@
 import UIKit
 
 class GifMakerVC: UIViewController {
-    // MARK: - Top Bar Outlets
-    @IBOutlet weak var titleLabel: UILabel!
-
     // MARK: - Image View Outlets
     @IBOutlet weak var topTextfield: UITextField!
     @IBOutlet weak var bottomTextfield: UITextField!
@@ -21,6 +18,7 @@ class GifMakerVC: UIViewController {
     // MARK: - Bottom Bar Outlets
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
 
     // MARK: - Keyboard Properties
     private var keyboardHeight: CGFloat = 0 {
@@ -99,6 +97,8 @@ class GifMakerVC: UIViewController {
 
     private func generateMemedImage() -> UIImage {
 
+        self.navigationController?.navigationBar.isHidden = true
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
@@ -186,7 +186,7 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         placeholderImage.isHidden = true
         topTextfield.isHidden = false
         bottomTextfield.isHidden = false
-        titleLabel.text = "Add Text"
+        self.navigationItem.title = "Add Text"
 
         self.dismiss(animated: true, completion: nil)
     }
