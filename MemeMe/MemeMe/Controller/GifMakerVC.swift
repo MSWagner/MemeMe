@@ -46,7 +46,6 @@ class GifMakerVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        proveIsMemeImageReady()
 
         subscribeToKeyboardNotifications()
         subscribeToDeviceOrientationNotifications()
@@ -104,7 +103,9 @@ class GifMakerVC: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.image = #imageLiteral(resourceName: "placeholder")
         topTextfield.text = "ADD TOP TEXT"
+        topTextfield.isHidden = true
         bottomTextfield.text = "ADD BOTTOM TEXT"
+        bottomTextfield.isHidden = true
         self.navigationItem.title = "Choose your image"
         shareButton.isEnabled = false
     }
