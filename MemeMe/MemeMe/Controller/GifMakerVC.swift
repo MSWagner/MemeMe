@@ -53,10 +53,22 @@ class GifMakerVC: UIViewController {
         view.addGestureRecognizer(tapRecognizer)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        setTextAttributes(topTextfield)
+        setTextAttributes(bottomTextfield)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
         unsubscribeFromDeviceOrientationNotifications()
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        setTextAttributes(topTextfield)
+        setTextAttributes(bottomTextfield)
     }
 
     // MARK: - IBAction Functions
@@ -131,12 +143,14 @@ class GifMakerVC: UIViewController {
         view.endEditing(true)
     }
 
-    // MARK: - Textfield Attribute Function
+    // MARK: - Textfield UI Function
     private func setTextAttributes(_ textfield: UITextField) {
+        let textSize: CGFloat = UIDevice.current.orientation.isLandscape ? 30 : 40
+
         let memeTextAttributes:[String: Any] = [
             NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: textSize)!,
             NSAttributedStringKey.strokeWidth.rawValue: -4]
         textfield.defaultTextAttributes = memeTextAttributes
         textfield.textAlignment = .center

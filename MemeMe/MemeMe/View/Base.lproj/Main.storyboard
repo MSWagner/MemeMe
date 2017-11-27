@@ -79,21 +79,75 @@
                                 <rect key="frame" x="30" y="553" width="315" height="50"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="8F9-0H-0w0"/>
+                                    <constraint firstAttribute="height" constant="30" id="8F9-0H-0w0"/>
+                                    <constraint firstAttribute="height" constant="50" id="lO6-1j-wbs"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8F9-0H-0w0"/>
+                                        <exclude reference="lO6-1j-wbs"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="8F9-0H-0w0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="8F9-0H-0w0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="lO6-1j-wbs"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="lO6-1j-wbs"/>
+                                    </mask>
+                                </variation>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="ADD TOP TEXT" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="W1n-TR-DPS" userLabel="Top Textfield">
                                 <rect key="frame" x="20" y="84" width="335" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="G7j-vs-4NF"/>
                                     <constraint firstAttribute="height" constant="50" id="Rek-jN-VOH"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="G7j-vs-4NF"/>
+                                        <exclude reference="Rek-jN-VOH"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="G7j-vs-4NF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="G7j-vs-4NF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Rek-jN-VOH"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Rek-jN-VOH"/>
+                                    </mask>
+                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -125,6 +179,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="fSI-aL-RAg"/>
+                                <exclude reference="fkk-3u-b1i"/>
                                 <exclude reference="0cP-g9-Dp5"/>
                                 <exclude reference="kDk-ik-xWi"/>
                             </mask>
