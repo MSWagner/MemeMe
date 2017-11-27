@@ -15,5 +15,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ### Screenshots
 | LaunchState | Meme |Share|
 |----------|-----------|-----------|
-|<img src="https://github.com/MSWagner/MemeMe/blob/master/Screenshots/launchState.png" width="200">|<img src="https://github.com/MSWagner/MemeMe/blob/master/Screenshots/meme.png" width="400">|
+|<img src="https://github.com/MSWagner/MemeMe/blob/master/Screenshots/launchState.png" width="200">|<img src="https://github.com/MSWagner/MemeMe/blob/master/Screenshots/meme.png" width="200">|
 |<img src="https://github.com/MSWagner/MemeMe/blob/master/Screenshots/share.png" width="200">|<img
