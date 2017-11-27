@@ -23,7 +23,7 @@ class GifMakerVC: UIViewController {
     @IBOutlet weak var albumButton: UIBarButtonItem!
 
     // MARK: - Keyboard Properties
-    var keyboardHeight: CGFloat = 0 {
+    private var keyboardHeight: CGFloat = 0 {
         didSet {
             if bottomTextfield.isEditing {
                 view.frame.origin.y += keyboardHeight == 0 ? oldValue : -keyboardHeight
@@ -35,6 +35,7 @@ class GifMakerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         proveImageSources()
+        self.navigationController?.navigationBar.backgroundColor = UIColor.gray
 
         configureTextfields()
     }
@@ -75,7 +76,7 @@ class GifMakerVC: UIViewController {
         self.present(picker, animated: true, completion: nil)
     }
 
-    // MARK: - Image Picker Functions
+    // MARK: - Image Functions
     private func proveImageSources() {
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             cameraButton.isEnabled = false
@@ -94,6 +95,17 @@ class GifMakerVC: UIViewController {
         tmpPicker.delegate = self
 
         return tmpPicker
+    }
+
+    private func generateMemedImage() -> UIImage {
+
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return memedImage
     }
 
     // MARK: - DeviceOrientation Functions
@@ -169,7 +181,8 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         }
         imageView.contentMode = .scaleAspectFit
         imageView.image = chosenImage
-
+        imageView.backgroundColor = UIColor.black
+        
         placeholderImage.isHidden = true
         topTextfield.isHidden = false
         bottomTextfield.isHidden = false

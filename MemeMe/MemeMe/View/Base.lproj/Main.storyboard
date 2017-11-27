@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ccv-93-FbU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Gif MakerVC-->
+        <!--Navigation Controller-->
+        <scene sceneID="ukv-nE-tOM">
+            <objects>
+                <navigationController id="Ccv-93-FbU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Df9-vL-QO4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0zw-EG-i2P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jpk-37-gp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-882" y="32"/>
+        </scene>
+        <!--Choose your Image-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GifMakerVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,25 +57,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YmQ-PD-hAl"/>
                                 </items>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="pMc-33-0g4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="qi1-FL-Vh1"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem systemItem="action" id="wRh-fT-JVb">
-                                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="0.0"/>
-                                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VzW-rD-c2h"/>
-                                    <barButtonItem systemItem="cancel" id="dsk-Xm-aeL">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="AL8-sG-c3p">
-                                <rect key="frame" x="102" y="31" width="171" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="AL8-sG-c3p">
+                                <rect key="frame" x="102" y="75" width="171" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -153,27 +153,22 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="top" secondItem="zxr-mx-I8K" secondAttribute="bottom" constant="20" id="0cP-g9-Dp5"/>
-                            <constraint firstItem="AL8-sG-c3p" firstAttribute="centerX" secondItem="pMc-33-0g4" secondAttribute="centerX" id="0lI-8u-OG9"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3OL-KM-2D7"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8SW-tj-tOW"/>
-                            <constraint firstItem="2Tb-6R-w1O" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="FMt-fI-XZq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zxr-mx-I8K" secondAttribute="trailing" constant="30" id="Ir3-Ei-gvz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W1n-TR-DPS" secondAttribute="trailing" constant="20" id="MjT-CH-Zfu"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OO7-dJ-Zx6"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="top" secondItem="kUP-LX-fwy" secondAttribute="bottom" id="Qvc-sK-WjJ"/>
-                            <constraint firstItem="pMc-33-0g4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VnS-Yc-LYU"/>
+                            <constraint firstItem="kUP-LX-fwy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="W7l-gX-YXr"/>
                             <constraint firstItem="W1n-TR-DPS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aD3-2u-5uF"/>
                             <constraint firstItem="kUP-LX-fwy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b3y-Dr-rFy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="top" constant="20" id="beQ-Mp-20H"/>
-                            <constraint firstItem="2Tb-6R-w1O" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="e94-eO-pPf"/>
-                            <constraint firstItem="W1n-TR-DPS" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="bottom" constant="10" id="fSI-aL-RAg"/>
-                            <constraint firstItem="W1n-TR-DPS" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="bottom" constant="20" id="fkk-3u-b1i"/>
+                            <constraint firstItem="2Tb-6R-w1O" firstAttribute="centerY" secondItem="kUP-LX-fwy" secondAttribute="centerY" id="cbN-Vp-ViO"/>
+                            <constraint firstItem="2Tb-6R-w1O" firstAttribute="centerX" secondItem="kUP-LX-fwy" secondAttribute="centerX" id="doH-6h-6IY"/>
+                            <constraint firstItem="W1n-TR-DPS" firstAttribute="top" secondItem="kUP-LX-fwy" secondAttribute="top" constant="10" id="fSI-aL-RAg"/>
+                            <constraint firstItem="W1n-TR-DPS" firstAttribute="top" secondItem="kUP-LX-fwy" secondAttribute="top" constant="20" id="fkk-3u-b1i"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="top" secondItem="zxr-mx-I8K" secondAttribute="bottom" constant="10" id="kDk-ik-xWi"/>
                             <constraint firstItem="kUP-LX-fwy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="m8n-iY-Ktp"/>
-                            <constraint firstItem="pMc-33-0g4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qEz-nh-nEN"/>
                             <constraint firstItem="zxr-mx-I8K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="v6P-a7-ZC2"/>
-                            <constraint firstItem="AL8-sG-c3p" firstAttribute="bottom" secondItem="pMc-33-0g4" secondAttribute="bottom" constant="-10" id="w55-5a-joM"/>
-                            <constraint firstItem="kUP-LX-fwy" firstAttribute="top" secondItem="pMc-33-0g4" secondAttribute="bottom" id="wyH-8w-1wp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
@@ -209,6 +204,15 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Choose your Image" id="U4Z-1s-pCh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="wRh-fT-JVb">
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="dsk-Xm-aeL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="albumButton" destination="lgN-uM-QTK" id="QxL-dN-bzS"/>
                         <outlet property="bottomTextfield" destination="zxr-mx-I8K" id="Mq4-Go-KcO"/>
