@@ -66,7 +66,7 @@ class GifMakerVC: UIViewController {
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        configureTextfields() // To shrink Textsize following the new Textfield height (landscape/portrait)
+        configureTextfields() // To shrink Textsize following the different Textfield heights on landscape/portrait
     }
 
     // MARK: - IBAction Functions
@@ -115,6 +115,7 @@ class GifMakerVC: UIViewController {
 
         let memeImage = generateMemedImage()
         meme = Meme(topText: topText, bottomText: bottomText, image: image, memeImage: memeImage)
+        shareButton.isEnabled = meme != nil ? true : false
     }
 
     private func generateMemedImage() -> UIImage {
@@ -128,8 +129,8 @@ class GifMakerVC: UIViewController {
     }
 
     private func cropImage(_ image: UIImage) -> UIImage {
-        let yAxisImageView = imageView.frame.origin.y
-        let cropRect = CGRect(x: 0, y: yAxisImageView + 1, width: imageView.frame.width, height: imageView.frame.height - 2)
+        let yAxisImageView = imageView.frame.origin.y // Image start below the navigationbar
+        let cropRect = CGRect(x: 0, y: yAxisImageView + 1, width: imageView.frame.width, height: imageView.frame.height - 2) // insets to get a clean cut
         let cgImage = image.cgImage?.cropping(to: cropRect)
         let newImage = UIImage(cgImage: cgImage!)
 
@@ -138,6 +139,7 @@ class GifMakerVC: UIViewController {
 
     // MARK: - DeviceOrientation Functions
     private func subscribeToDeviceOrientationNotifications() {
+        // Hide Keyboard with DeviceOrientation Transition
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: .UIDeviceOrientationDidChange, object: nil)
     }
 
@@ -203,8 +205,8 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-            self.dismiss(animated: true, completion: nil)
             // If the user choose as example a video or other false formats
+            self.dismiss(animated: true, completion: nil)
             return
         }
         imageView.contentMode = .scaleAspectFit
