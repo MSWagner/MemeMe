@@ -36,11 +36,7 @@ class GifMakerVC: UIViewController {
         super.viewDidLoad()
         proveImageSources()
 
-        topTextfield.delegate = self
-        bottomTextfield.delegate = self
-
-        setTextAttributes(topTextfield)
-        setTextAttributes(bottomTextfield)
+        configureTextfields()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,9 +51,7 @@ class GifMakerVC: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        setTextAttributes(topTextfield)
-        setTextAttributes(bottomTextfield)
+        configureTextfields()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,8 +61,7 @@ class GifMakerVC: UIViewController {
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        setTextAttributes(topTextfield)
-        setTextAttributes(bottomTextfield)
+        configureTextfields() // To shrink Textsize following the new Textfield height (landscape/portrait)
     }
 
     // MARK: - IBAction Functions
@@ -144,6 +137,14 @@ class GifMakerVC: UIViewController {
     }
 
     // MARK: - Textfield UI Function
+    private func configureTextfields() {
+        topTextfield.delegate = self
+        bottomTextfield.delegate = self
+
+        setTextAttributes(topTextfield)
+        setTextAttributes(bottomTextfield)
+    }
+
     private func setTextAttributes(_ textfield: UITextField) {
         let textSize: CGFloat = UIDevice.current.orientation.isLandscape ? 30 : 40
 
