@@ -74,6 +74,10 @@ class GifMakerVC: UIViewController {
         self.present(picker, animated: true, completion: nil)
     }
 
+    @IBAction func onShare(_ sender: Any) {
+        imageView.image = generateMemedImage()
+    }
+    
     // MARK: - Image Functions
     private func proveImageSources() {
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -95,17 +99,23 @@ class GifMakerVC: UIViewController {
         return tmpPicker
     }
 
-    private func generateMemedImage() -> UIImage {
-
-        self.navigationController?.navigationBar.isHidden = true
-        
+    private func generateMemedImage() -> UIImage {        
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIGraphicsBeginImageContext(view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return memedImage
+        return cropImage(memedImage)
+    }
+
+    private func cropImage(_ image: UIImage) -> UIImage {
+        let yAxisImageView = imageView.frame.origin.y
+        let cropRect = CGRect(x: 0, y: yAxisImageView, width: imageView.frame.width, height: imageView.frame.height)
+        let cgImage = image.cgImage?.cropping(to: cropRect)
+        let newImage = UIImage(cgImage: cgImage!)
+
+        return newImage
     }
 
     // MARK: - DeviceOrientation Functions

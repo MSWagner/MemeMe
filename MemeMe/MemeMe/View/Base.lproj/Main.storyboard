@@ -201,6 +201,9 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="wRh-fT-JVb">
                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onShare:" destination="BYZ-38-t0r" id="HPY-r9-T8O"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="dsk-Xm-aeL">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
