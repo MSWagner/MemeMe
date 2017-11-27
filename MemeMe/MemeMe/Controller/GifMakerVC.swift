@@ -25,7 +25,9 @@ class GifMakerVC: UIViewController {
     // MARK: - Keyboard Properties
     var keyboardHeight: CGFloat = 0 {
         didSet {
-            view.frame.origin.y += keyboardHeight == 0 ? oldValue : -keyboardHeight
+            if bottomTextfield.isEditing {
+                view.frame.origin.y += keyboardHeight == 0 ? oldValue : -keyboardHeight
+            }
         }
     }
 
@@ -45,6 +47,7 @@ class GifMakerVC: UIViewController {
         super.viewWillAppear(animated)
 
         subscribeToKeyboardNotifications()
+        subscribeToDeviceOrientationNotifications()
 
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapRecognizer)
@@ -53,6 +56,7 @@ class GifMakerVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+        unsubscribeFromDeviceOrientationNotifications()
     }
 
     // MARK: - IBAction Functions
@@ -85,6 +89,15 @@ class GifMakerVC: UIViewController {
         tmpPicker.delegate = self
 
         return tmpPicker
+    }
+
+    // MARK: - DeviceOrientation Functions
+    private func subscribeToDeviceOrientationNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: .UIDeviceOrientationDidChange, object: nil)
+    }
+
+    private func unsubscribeFromDeviceOrientationNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIDeviceOrientationDidChange, object: nil)
     }
 
     // MARK: - Keyboard Functions
