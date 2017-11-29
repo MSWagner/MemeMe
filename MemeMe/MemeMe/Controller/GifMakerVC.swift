@@ -71,13 +71,11 @@ class GifMakerVC: UIViewController {
 
     // MARK: - IBAction Functions
     @IBAction func onCamera(_ sender: Any) {
-        let picker = preparePicker(srcType: .camera)
-        present(picker, animated: true, completion: nil)
+        prepareAndPresentPicker(srcType: .camera)
     }
 
     @IBAction func onAlbum(_ sender: Any) {
-        let picker = preparePicker(srcType: .photoLibrary)
-        present(picker, animated: true, completion: nil)
+        prepareAndPresentPicker(srcType: .photoLibrary)
     }
 
     @IBAction func onShare(_ sender: Any) {
@@ -121,14 +119,14 @@ class GifMakerVC: UIViewController {
         }
     }
 
-    private func preparePicker(srcType: UIImagePickerControllerSourceType) -> UIImagePickerController {
-        let tmpPicker = UIImagePickerController()
-        tmpPicker.sourceType = srcType
-        tmpPicker.allowsEditing = false
-        tmpPicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: srcType)!
-        tmpPicker.delegate = self
+    private func prepareAndPresentPicker(srcType: UIImagePickerControllerSourceType) {
+        let picker = UIImagePickerController()
+        picker.sourceType = srcType
+        picker.allowsEditing = false
+        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: srcType)!
+        picker.delegate = self
 
-        return tmpPicker
+        present(picker, animated: true, completion: nil)
     }
 
     private func proveIsMemeImageReady() {
