@@ -72,12 +72,12 @@ class GifMakerVC: UIViewController {
     // MARK: - IBAction Functions
     @IBAction func onCamera(_ sender: Any) {
         let picker = preparePicker(srcType: .camera)
-        self.present(picker, animated: true, completion: nil)
+        present(picker, animated: true, completion: nil)
     }
 
     @IBAction func onAlbum(_ sender: Any) {
         let picker = preparePicker(srcType: .photoLibrary)
-        self.present(picker, animated: true, completion: nil)
+        present(picker, animated: true, completion: nil)
     }
 
     @IBAction func onShare(_ sender: Any) {
@@ -106,7 +106,7 @@ class GifMakerVC: UIViewController {
         topTextfield.isHidden = true
         bottomTextfield.text = "ADD BOTTOM TEXT"
         bottomTextfield.isHidden = true
-        self.navigationItem.title = "Choose your image"
+        navigationItem.title = "Choose your image"
         shareButton.isEnabled = false
     }
     
@@ -133,10 +133,10 @@ class GifMakerVC: UIViewController {
 
     private func proveIsMemeImageReady() {
         if (topTextfield.text != "ADD TOP TEXT") && (bottomTextfield.text != "ADD BOTTOM TEXT") {
-            self.navigationItem.title = "Share your Meme"
+            navigationItem.title = "Share your Meme"
             shareButton.isEnabled = true
         } else {
-            self.navigationItem.title = "Add Text"
+            navigationItem.title = "Add Text"
             shareButton.isEnabled = false
         }
     }
@@ -153,7 +153,7 @@ class GifMakerVC: UIViewController {
     private func generateMemedImage() -> UIImage {
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
@@ -238,7 +238,7 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
             // If the user choose as example a video or other false formats
-            self.dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
             return
         }
         imageView.contentMode = .scaleAspectFit
@@ -246,14 +246,14 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
 
         topTextfield.isHidden = false
         bottomTextfield.isHidden = false
-        self.navigationItem.title = "Add Text"
+        navigationItem.title = "Add Text"
         proveIsMemeImageReady()
 
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
