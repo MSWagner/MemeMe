@@ -11,7 +11,8 @@ import UIKit
 class GifMakerVC: UIViewController {
     // MARK: - Navigation Bar Outlets
     @IBOutlet weak var shareButton: UIBarButtonItem!
-
+    @IBOutlet weak var topBarLabel: UILabel!
+    
     // MARK: - Image View Outlets
     @IBOutlet weak var topTextfield: UITextField!
     @IBOutlet weak var bottomTextfield: UITextField!
@@ -98,7 +99,7 @@ class GifMakerVC: UIViewController {
 
     @IBAction func onCancel(_ sender: Any) {
         setToLaunchState()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: - UI Setup
@@ -109,7 +110,7 @@ class GifMakerVC: UIViewController {
         topTextfield.isHidden = true
         bottomTextfield.text = "ADD BOTTOM TEXT"
         bottomTextfield.isHidden = true
-        navigationItem.title = "Choose your image"
+        topBarLabel.text = "Choose your image"
         shareButton.isEnabled = false
     }
     
@@ -136,10 +137,10 @@ class GifMakerVC: UIViewController {
 
     private func proveIsMemeImageReady() {
         if (topTextfield.text != "ADD TOP TEXT") && (bottomTextfield.text != "ADD BOTTOM TEXT") {
-            navigationItem.title = "Share your Meme"
+            topBarLabel.text = "Share your Meme"
             shareButton.isEnabled = true
         } else {
-            navigationItem.title = "Add Text"
+            topBarLabel.text = "Add Text"
             shareButton.isEnabled = false
         }
     }
@@ -249,7 +250,7 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
 
         topTextfield.isHidden = false
         bottomTextfield.isHidden = false
-        navigationItem.title = "Add Text"
+        topBarLabel.text = "Add Text"
         proveIsMemeImageReady()
 
         dismiss(animated: true, completion: nil)

@@ -72,7 +72,9 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MvY-qj-FxD">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="3wM-mz-EIx"/>
+                                <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorBarButtonItem="MvY-qj-FxD" id="LC5-3m-7Gv">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -81,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="-1084" y="-429"/>
         </scene>
-        <!--Choose your Image-->
+        <!--Gif MakerVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GifMakerVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="eTX-2b-Fpy">
-                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="XUG-67-K9N"/>
                                 </constraints>
@@ -113,11 +115,11 @@
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kUP-LX-fwy">
-                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="ADD BOTTOM TEXT" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="zxr-mx-I8K" userLabel="Bottom Textfield">
-                                <rect key="frame" x="30" y="504" width="315" height="50"/>
+                                <rect key="frame" x="30" y="553" width="315" height="50"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8F9-0H-0w0"/>
@@ -190,24 +192,58 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="a2Q-ja-M3A">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="aYf-UC-XFv"/>
+                                    <constraint firstAttribute="height" constant="44" id="sOJ-9H-e6V"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem enabled="NO" systemItem="action" id="wRh-fT-JVb">
+                                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onShare:" destination="BYZ-38-t0r" id="HPY-r9-T8O"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="geZ-Nl-xdR"/>
+                                    <barButtonItem systemItem="cancel" id="dsk-Xm-aeL">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onCancel:" destination="BYZ-38-t0r" id="UHf-3W-fcJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2B-Dr-5kP">
+                                <rect key="frame" x="110" y="31" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="top" secondItem="zxr-mx-I8K" secondAttribute="bottom" constant="20" id="0cP-g9-Dp5"/>
+                            <constraint firstItem="a2Q-ja-M3A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1hP-3G-2Ad"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3OL-KM-2D7"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8SW-tj-tOW"/>
+                            <constraint firstItem="p2B-Dr-5kP" firstAttribute="centerY" secondItem="a2Q-ja-M3A" secondAttribute="centerY" id="FeV-vQ-VI3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zxr-mx-I8K" secondAttribute="trailing" constant="30" id="Ir3-Ei-gvz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W1n-TR-DPS" secondAttribute="trailing" constant="20" id="MjT-CH-Zfu"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OO7-dJ-Zx6"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="top" secondItem="kUP-LX-fwy" secondAttribute="bottom" id="Qvc-sK-WjJ"/>
-                            <constraint firstItem="kUP-LX-fwy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="W7l-gX-YXr"/>
+                            <constraint firstItem="kUP-LX-fwy" firstAttribute="top" secondItem="a2Q-ja-M3A" secondAttribute="bottom" id="TQw-3f-Di4"/>
                             <constraint firstItem="W1n-TR-DPS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aD3-2u-5uF"/>
                             <constraint firstItem="kUP-LX-fwy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b3y-Dr-rFy"/>
                             <constraint firstItem="W1n-TR-DPS" firstAttribute="top" secondItem="kUP-LX-fwy" secondAttribute="top" constant="10" id="fSI-aL-RAg"/>
                             <constraint firstItem="W1n-TR-DPS" firstAttribute="top" secondItem="kUP-LX-fwy" secondAttribute="top" constant="20" id="fkk-3u-b1i"/>
+                            <constraint firstItem="p2B-Dr-5kP" firstAttribute="centerX" secondItem="a2Q-ja-M3A" secondAttribute="centerX" id="jD7-ar-8v0"/>
                             <constraint firstItem="eTX-2b-Fpy" firstAttribute="top" secondItem="zxr-mx-I8K" secondAttribute="bottom" constant="10" id="kDk-ik-xWi"/>
                             <constraint firstItem="kUP-LX-fwy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="m8n-iY-Ktp"/>
+                            <constraint firstItem="a2Q-ja-M3A" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rs5-lX-7VH"/>
                             <constraint firstItem="zxr-mx-I8K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="v6P-a7-ZC2"/>
+                            <constraint firstItem="a2Q-ja-M3A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vPO-hC-2ZW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
@@ -243,21 +279,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose your Image" id="U4Z-1s-pCh">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="wRh-fT-JVb">
-                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="onShare:" destination="BYZ-38-t0r" id="HPY-r9-T8O"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="dsk-Xm-aeL">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="onCancel:" destination="BYZ-38-t0r" id="UHf-3W-fcJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="albumButton" destination="lgN-uM-QTK" id="QxL-dN-bzS"/>
                         <outlet property="bottomTextfield" destination="zxr-mx-I8K" id="Mq4-Go-KcO"/>
@@ -265,12 +286,13 @@
                         <outlet property="cameraButton" destination="LSB-8f-Chp" id="XZY-fm-yCJ"/>
                         <outlet property="imageView" destination="kUP-LX-fwy" id="qEB-SW-KVf"/>
                         <outlet property="shareButton" destination="wRh-fT-JVb" id="SjO-V2-bi9"/>
+                        <outlet property="topBarLabel" destination="p2B-Dr-5kP" id="ppA-C6-oFI"/>
                         <outlet property="topTextfield" destination="W1n-TR-DPS" id="Pbf-3U-cCh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="198" y="4"/>
+            <point key="canvasLocation" x="197.59999999999999" y="3.1484257871064472"/>
         </scene>
         <!--Collection-->
         <scene sceneID="bBx-Op-uxL">
@@ -321,6 +343,11 @@
                     <navigationItem key="navigationItem" id="yEK-4P-ga5">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lO1-bz-XPS">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorBarButtonItem="lO1-bz-XPS" id="hFY-tS-egY">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
@@ -333,4 +360,7 @@
         <image name="collection" width="30" height="30"/>
         <image name="table" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hFY-tS-egY"/>
+    </inferredMetricsTieBreakers>
 </document>
