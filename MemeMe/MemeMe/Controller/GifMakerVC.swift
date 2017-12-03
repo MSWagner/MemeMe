@@ -52,6 +52,8 @@ class GifMakerVC: UIViewController {
 
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapRecognizer)
+
+        tabBarController?.tabBar.isHidden = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +65,8 @@ class GifMakerVC: UIViewController {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
         unsubscribeFromDeviceOrientationNotifications()
+
+        tabBarController?.tabBar.isHidden = false
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -94,6 +98,7 @@ class GifMakerVC: UIViewController {
 
     @IBAction func onCancel(_ sender: Any) {
         setToLaunchState()
+        navigationController?.popViewController(animated: true)
     }
 
     // MARK: - UI Setup
