@@ -93,6 +93,7 @@ class GifMakerVC: UIViewController {
 
         activityVC.completionWithItemsHandler = { activity, completed, items, error in
             if completed && error == nil {
+                print("Save")
                 self.save()
                 return
             }
