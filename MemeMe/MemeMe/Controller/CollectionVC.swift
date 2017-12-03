@@ -15,18 +15,18 @@ class CollectionVC: UICollectionViewController {
     private let itemsPerRow: CGFloat = 3
     private let sectionInsets = UIEdgeInsets(top: 11.0, left: 11.0, bottom: 11.0, right: 11.0)
 
-    private lazy var memes: [Meme] = {
+    private var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
-    }()
+    }
 
+    // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView?.reloadData()
     }
 }
 
@@ -41,10 +41,9 @@ extension CollectionVC {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeCollectionCell
 
-        // Configure the cell
-
+        cell.memeImage.image = memes[indexPath.row].image
         return cell
     }
 }
