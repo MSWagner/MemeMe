@@ -33,8 +33,10 @@ class GifMakerVC: UIViewController {
     }
 
     // MARK: - Meme Properties
-    private var meme: Meme?
     private var isMemeImageComplete: Bool = false
+
+    // MARK: - Appdelegate Propertie
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -151,7 +153,8 @@ class GifMakerVC: UIViewController {
         }
 
         let memeImage = generateMemedImage()
-        meme = Meme(topText: topText, bottomText: bottomText, image: image, memeImage: memeImage)
+        let meme = Meme(topText: topText, bottomText: bottomText, image: image, memeImage: memeImage)
+        appDelegate.memes.append(meme)
     }
 
     private func generateMemedImage() -> UIImage {
