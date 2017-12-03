@@ -11,9 +11,9 @@ import UIKit
 class TableVC: UITableViewController {
 
     // MARK: - Meme Propertie
-    private lazy var memes: [Meme] = {
+    private var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
-    }()
+    }
 
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
