@@ -18,6 +18,8 @@ class TableVC: UITableViewController {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
 
+    private var selectedImage: UIImage?
+
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,16 @@ class TableVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+
+    // MARK: - Navigation Functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "SegueFromTableToDetailVC") {
+            let detailVC = segue.destination as! DetailVC
+            if let image = selectedImage {
+                detailVC.image = image
+            }
+        }
     }
 }
 
@@ -56,4 +68,10 @@ extension TableVC {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedImage = memes[indexPath.row].memeImage
+        return indexPath
+    }
+   
 }
