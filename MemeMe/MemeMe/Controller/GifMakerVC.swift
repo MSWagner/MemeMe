@@ -160,6 +160,7 @@ class GifMakerVC: UIViewController {
 
     private func generateMemedImage() -> UIImage {
         // Render view to an image
+
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
@@ -170,11 +171,35 @@ class GifMakerVC: UIViewController {
 
     private func cropImage(_ image: UIImage) -> UIImage {
         let yAxisImageView = imageView.frame.origin.y // Image start below the navigationbar
-        let cropRect = CGRect(x: 0, y: yAxisImageView + 1, width: imageView.frame.width, height: imageView.frame.height - 2) // insets to get a clean cut
+
+        let insetSize = getInsetSizeToCropTheBorder()
+
+        let cropRect = CGRect(x: 0 + insetSize.width, y: yAxisImageView + 1 + insetSize.height, width: imageView.frame.width - insetSize.width*2, height: imageView.frame.height - 2 - insetSize.height*2) // insets to get a clean cut
         let cgImage = image.cgImage?.cropping(to: cropRect)
         let newImage = UIImage(cgImage: cgImage!)
 
         return newImage
+    }
+
+    // to crop the border because of AspectFit
+    private func getInsetSizeToCropTheBorder() -> CGSize {
+        guard let imageWidth = imageView.image?.size.width else {
+            return CGSize(width: 0, height: 0)
+        }
+        guard let imageHeight = imageView.image?.size.height else {
+            return CGSize(width: 0, height: 0)
+        }
+
+        let imageViewWidth = imageView.frame.width
+        let imageViewHeight = imageView.frame.height
+
+        let widthQuotient = (imageWidth / imageViewWidth)
+        let heightQuotient = (imageHeight / imageViewHeight)
+
+        let yInset: CGFloat = widthQuotient > heightQuotient ? (imageViewHeight - imageHeight / widthQuotient) / 2 : 0
+        let xInset: CGFloat = heightQuotient > widthQuotient ? (imageViewWidth - imageWidth / heightQuotient) / 2 : 0
+
+        return CGSize(width: xInset, height: yInset)
     }
 
     // MARK: - DeviceOrientation Functions
