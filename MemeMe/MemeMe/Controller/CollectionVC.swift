@@ -13,7 +13,7 @@ class CollectionVC: UICollectionViewController {
     // MARK: - CollectionView Properties
     private let reuseIdentifier = "MemeCell"
     private let itemsPerRow: CGFloat = 3
-    private let sectionInsets = UIEdgeInsets(top: 11.0, left: 11.0, bottom: 11.0, right: 11.0)
+    private let sectionInsets = UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)
 
     private var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
