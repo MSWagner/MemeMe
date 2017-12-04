@@ -21,6 +21,7 @@ class TableVC: UITableViewController {
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
