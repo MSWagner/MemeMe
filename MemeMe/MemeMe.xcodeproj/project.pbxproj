@@ -53,6 +53,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D34F55E71FD5BC340092115E /* ReusableCells */ = {
+			isa = PBXGroup;
+			children = (
+				D38C5EDE1FD46DC2007300EE /* MemeCollectionCell.swift */,
+				D34F55E51FD59DBF0092115E /* MemeTableCell.swift */,
+			);
+			path = ReusableCells;
+			sourceTree = "<group>";
+		};
 		D38272611FBE415600424478 = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +96,7 @@
 				D38272741FBE415600424478 /* Assets.xcassets */,
 				D38272711FBE415600424478 /* Main.storyboard */,
 				D38272761FBE415600424478 /* LaunchScreen.storyboard */,
-				D38C5EDE1FD46DC2007300EE /* MemeCollectionCell.swift */,
-				D34F55E51FD59DBF0092115E /* MemeTableCell.swift */,
+				D34F55E71FD5BC340092115E /* ReusableCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
