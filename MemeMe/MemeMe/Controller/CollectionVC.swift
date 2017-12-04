@@ -13,7 +13,7 @@ class CollectionVC: UICollectionViewController {
     // MARK: - CollectionView Properties
     private let reuseIdentifier = "MemeCollectionCell"
     private let itemsPerRow: CGFloat = 3
-    private let sectionInsets = UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)
+    private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
 
     private var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
@@ -48,7 +48,7 @@ extension CollectionVC {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionView DelegateFlowLayout
 extension CollectionVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
