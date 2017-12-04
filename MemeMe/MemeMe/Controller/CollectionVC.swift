@@ -19,7 +19,7 @@ class CollectionVC: UICollectionViewController {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
 
-    var selectedImage: UIImage?
+    private var selectedImage: UIImage?
 
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -31,6 +31,7 @@ class CollectionVC: UICollectionViewController {
         collectionView?.reloadData()
     }
 
+    // MARK: - Navigation Functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "SegueFromCollectionToDetailVC") {
             let detailVC = segue.destination as! DetailVC
