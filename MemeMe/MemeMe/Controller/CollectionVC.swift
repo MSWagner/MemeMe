@@ -19,6 +19,8 @@ class CollectionVC: UICollectionViewController {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
 
+    var selectedImage: UIImage?
+
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,15 @@ class CollectionVC: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView?.reloadData()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "SegueFromCollectionToDetailVC") {
+            let detailVC = segue.destination as! DetailVC
+            if let image = selectedImage {
+                detailVC.image = image
+            }
+        }
     }
 }
 
@@ -71,5 +82,10 @@ extension CollectionVC : UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        selectedImage = memes[indexPath.row].memeImage
+        return true
     }
 }

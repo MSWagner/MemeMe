@@ -100,6 +100,7 @@
                                     <outlet property="bottomLabel" destination="xSg-uV-TUp" id="22Q-km-2PJ"/>
                                     <outlet property="memeImage" destination="20k-vb-uvD" id="SPc-Uj-q7c"/>
                                     <outlet property="topLabel" destination="wBb-hh-oqK" id="gsx-Jj-cVA"/>
+                                    <segue destination="S6f-L6-OHX" kind="show" identifier="SegueFromTableToDetailVC" id="e1O-KX-5Kl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -333,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197.59999999999999" y="3.1484257871064472"/>
+            <point key="canvasLocation" x="143" y="-429"/>
         </scene>
         <!--Collection-->
         <scene sceneID="bBx-Op-uxL">
@@ -388,6 +389,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="memeImage" destination="Scg-oZ-rzh" id="i1f-lN-5W7"/>
+                                    <segue destination="S6f-L6-OHX" kind="show" identifier="SegueFromCollectionToDetailVC" id="HOK-H4-zad"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -411,12 +413,42 @@
             </objects>
             <point key="canvasLocation" x="-1084" y="384.55772113943033"/>
         </scene>
+        <!--DetailVC-->
+        <scene sceneID="9xJ-pa-PCR">
+            <objects>
+                <viewController storyboardIdentifier="DetailVC" id="S6f-L6-OHX" customClass="DetailVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JgU-tn-tUl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oOa-wC-MLA">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oOa-wC-MLA" firstAttribute="top" secondItem="R4c-kU-5lr" secondAttribute="top" id="62O-D4-Nat"/>
+                            <constraint firstItem="R4c-kU-5lr" firstAttribute="bottom" secondItem="oOa-wC-MLA" secondAttribute="bottom" id="E5H-cA-sEI"/>
+                            <constraint firstItem="oOa-wC-MLA" firstAttribute="leading" secondItem="R4c-kU-5lr" secondAttribute="leading" id="Vr2-SV-Zoc"/>
+                            <constraint firstItem="R4c-kU-5lr" firstAttribute="trailing" secondItem="oOa-wC-MLA" secondAttribute="trailing" id="tf2-aD-6dy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="R4c-kU-5lr"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="oOa-wC-MLA" id="gxm-1R-23A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RWq-ch-2LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="142" y="385"/>
+        </scene>
     </scenes>
     <resources>
         <image name="collection" width="30" height="30"/>
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="HOK-H4-zad"/>
         <segue reference="LC5-3m-7Gv"/>
     </inferredMetricsTieBreakers>
 </document>
