@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D34F55E61FD59DBF0092115E /* MemeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F55E51FD59DBF0092115E /* MemeTableCell.swift */; };
 		D382726E1FBE415600424478 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382726D1FBE415600424478 /* AppDelegate.swift */; };
 		D38272701FBE415600424478 /* GifMakerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382726F1FBE415600424478 /* GifMakerVC.swift */; };
 		D38272731FBE415600424478 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38272711FBE415600424478 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D34F55E51FD59DBF0092115E /* MemeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableCell.swift; sourceTree = "<group>"; };
 		D382726A1FBE415600424478 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D382726D1FBE415600424478 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D382726F1FBE415600424478 /* GifMakerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifMakerVC.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				D38272711FBE415600424478 /* Main.storyboard */,
 				D38272761FBE415600424478 /* LaunchScreen.storyboard */,
 				D38C5EDE1FD46DC2007300EE /* MemeCollectionCell.swift */,
+				D34F55E51FD59DBF0092115E /* MemeTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3AACFAE1FCC6F450052D084 /* Meme.swift in Sources */,
+				D34F55E61FD59DBF0092115E /* MemeTableCell.swift in Sources */,
 				D38C5EDB1FD466CB007300EE /* TableVC.swift in Sources */,
 				D38272701FBE415600424478 /* GifMakerVC.swift in Sources */,
 				D38C5EDF1FD46DC2007300EE /* MemeCollectionCell.swift in Sources */,

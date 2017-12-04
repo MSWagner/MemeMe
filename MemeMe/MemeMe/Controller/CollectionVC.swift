@@ -11,7 +11,7 @@ import UIKit
 class CollectionVC: UICollectionViewController {
 
     // MARK: - CollectionView Properties
-    private let reuseIdentifier = "MemeCell"
+    private let reuseIdentifier = "MemeCollectionCell"
     private let itemsPerRow: CGFloat = 3
     private let sectionInsets = UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0)
 
