@@ -310,4 +310,3 @@ extension GifMakerVC: UITextFieldDelegate {
         proveIsMemeImageReady()
     }
 }
-
