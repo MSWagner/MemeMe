@@ -379,7 +379,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="119" height="117"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Scg-oZ-rzh">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Scg-oZ-rzh">
                                             <rect key="frame" x="0.0" y="-0.5" width="119" height="117"/>
                                         </imageView>
                                     </subviews>
@@ -421,6 +421,6 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LC5-3m-7Gv"/>
+        <segue reference="hFY-tS-egY"/>
     </inferredMetricsTieBreakers>
 </document>
