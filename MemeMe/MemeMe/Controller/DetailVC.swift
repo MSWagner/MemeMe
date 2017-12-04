@@ -19,7 +19,7 @@ class DetailVC: UIViewController {
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.white
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,12 +28,10 @@ class DetailVC: UIViewController {
 
         if let image = image {
             imageView.image = image
-        } else {
-            print("No Image There")
         }
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
     }
 }
