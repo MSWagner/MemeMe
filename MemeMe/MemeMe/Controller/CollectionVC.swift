@@ -43,7 +43,7 @@ extension CollectionVC {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeCollectionCell
 
-        cell.memeImage.image = memes[indexPath.row].image
+        cell.memeImage.image = memes[indexPath.row].memeImage
         return cell
     }
 }

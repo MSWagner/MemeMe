@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="-1964" y="-428"/>
         </scene>
-        <!--TableVC-->
+        <!--Sent Memes-->
         <scene sceneID="6cl-Ht-Gdx">
             <objects>
                 <tableViewController id="HWK-Ce-vKb" customClass="TableVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,7 +68,7 @@
                             <outlet property="delegate" destination="HWK-Ce-vKb" id="cPb-9A-cq9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="SNf-UY-fc1">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="SNf-UY-fc1">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MvY-qj-FxD">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -310,7 +310,7 @@
             </objects>
             <point key="canvasLocation" x="-1964" y="386"/>
         </scene>
-        <!--CollectionVC-->
+        <!--Sent Memes-->
         <scene sceneID="1Bj-X5-fNQ">
             <objects>
                 <collectionViewController id="jmS-JR-xcc" customClass="CollectionVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -353,7 +353,7 @@
                             <outlet property="delegate" destination="jmS-JR-xcc" id="uDw-Zt-hVg"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="yEK-4P-ga5">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="yEK-4P-ga5">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lO1-bz-XPS">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
