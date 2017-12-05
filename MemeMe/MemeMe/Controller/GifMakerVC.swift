@@ -23,6 +23,23 @@ class GifMakerVC: UIViewController {
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var bottomToolbar: UIToolbar!
 
+    // MARK: - Textfield Constraints
+    @IBOutlet weak var topConstraintForTopTextfieldPortrait: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraintForBottomTextfieldPortrait: NSLayoutConstraint!
+
+    @IBOutlet weak var topConstraintForTopTextfieldLandscape: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraintForBottomTextfieldLandscape: NSLayoutConstraint!
+
+    private var textfieldInsetSize: CGSize = CGSize(width: 0, height: 0) {
+        didSet {
+            topConstraintForTopTextfieldPortrait.constant += textfieldInsetSize.height - oldValue.height
+            bottomConstraintForBottomTextfieldPortrait.constant += textfieldInsetSize.height - oldValue.height
+
+            topConstraintForTopTextfieldLandscape.constant += textfieldInsetSize.height - oldValue.height
+            bottomConstraintForBottomTextfieldLandscape.constant += textfieldInsetSize.height - oldValue.height
+        }
+    }
+
     // MARK: - Keyboard Properties
     private var keyboardHeight: CGFloat = 0 {
         didSet {
@@ -115,6 +132,7 @@ class GifMakerVC: UIViewController {
         bottomTextfield.isHidden = true
         topBarLabel.text = "Choose your image"
         shareButton.isEnabled = false
+        textfieldInsetSize = CGSize(width: 0, height: 0)
     }
     
     // MARK: - Image Functions
@@ -205,11 +223,16 @@ class GifMakerVC: UIViewController {
     // MARK: - DeviceOrientation Functions
     private func subscribeToDeviceOrientationNotifications() {
         // Hide Keyboard with DeviceOrientation Transition
-        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: .UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: .UIDeviceOrientationDidChange, object: nil)
     }
 
     private func unsubscribeFromDeviceOrientationNotifications() {
         NotificationCenter.default.removeObserver(self, name: .UIDeviceOrientationDidChange, object: nil)
+    }
+
+    @objc private func deviceOrientationDidChange() {
+        textfieldInsetSize = getInsetSizeToCropTheBorder()
+        hideKeyboard()
     }
 
     // MARK: - Keyboard Functions
@@ -269,6 +292,7 @@ class GifMakerVC: UIViewController {
 extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
+
         guard let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
             // If the user choose as example a video or other false formats
             dismiss(animated: true, completion: nil)
@@ -276,6 +300,8 @@ extension GifMakerVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         }
         imageView.contentMode = .scaleAspectFit
         imageView.image = chosenImage
+
+        textfieldInsetSize = getInsetSizeToCropTheBorder()
 
         topTextfield.isHidden = false
         bottomTextfield.isHidden = false
