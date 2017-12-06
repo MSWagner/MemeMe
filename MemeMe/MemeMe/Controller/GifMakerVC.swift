@@ -37,11 +37,22 @@ class GifMakerVC: UIViewController {
     // MARK: - TextfieldInsetSize Property
     private var textfieldInsetSize: CGSize = CGSize(width: 0, height: 0) {
         didSet {
+            // Move Textfields to fit over the image (yAxisNewValue  - yAxisOldValue)
+            // If imageView.frame.height > imageView.image.size.height
             topConstraintForTopTextfieldPortrait.constant += textfieldInsetSize.height - oldValue.height
-            bottomConstraintForBottomTextfieldPortrait.constant += textfieldInsetSize.height - oldValue.height
-
             topConstraintForTopTextfieldLandscape.constant += textfieldInsetSize.height - oldValue.height
+
+            bottomConstraintForBottomTextfieldPortrait.constant += textfieldInsetSize.height - oldValue.height
             bottomConstraintForBottomTextfieldLandscape.constant += textfieldInsetSize.height - oldValue.height
+
+            // Move Textfields to fit over the image (xAxisNewValue  - xAxisOldValue)
+            // If imageView.frame.width > imageView.image.size.width
+            tailingConstraintTopTextfield.constant += textfieldInsetSize.width - oldValue.width
+            leadingConstraintTopTextfield.constant += textfieldInsetSize.width - oldValue.width
+
+            trailingConstraintBottomTextfield.constant += textfieldInsetSize.width - oldValue.width
+            leadingConstraintBottomTextfield.constant += textfieldInsetSize.width - oldValue.width
+
         }
     }
 
@@ -115,7 +126,6 @@ class GifMakerVC: UIViewController {
 
         activityVC.completionWithItemsHandler = { activity, completed, items, error in
             if completed && error == nil {
-                print("Save")
                 self.save()
                 return
             }
