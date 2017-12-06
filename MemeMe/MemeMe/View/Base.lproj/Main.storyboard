@@ -329,11 +329,15 @@
                         <outlet property="bottomToolbar" destination="eTX-2b-Fpy" id="IHL-e6-AUr"/>
                         <outlet property="cameraButton" destination="LSB-8f-Chp" id="XZY-fm-yCJ"/>
                         <outlet property="imageView" destination="kUP-LX-fwy" id="qEB-SW-KVf"/>
+                        <outlet property="leadingConstraintBottomTextfield" destination="v6P-a7-ZC2" id="fmy-du-6QF"/>
+                        <outlet property="leadingConstraintTopTextfield" destination="aD3-2u-5uF" id="zan-nD-CFv"/>
                         <outlet property="shareButton" destination="wRh-fT-JVb" id="SjO-V2-bi9"/>
+                        <outlet property="tailingConstraintTopTextfield" destination="MjT-CH-Zfu" id="2LN-Zb-TrM"/>
                         <outlet property="topBarLabel" destination="p2B-Dr-5kP" id="ppA-C6-oFI"/>
                         <outlet property="topConstraintForTopTextfieldLandscape" destination="fSI-aL-RAg" id="n9s-FJ-94p"/>
                         <outlet property="topConstraintForTopTextfieldPortrait" destination="fkk-3u-b1i" id="PPn-jG-svR"/>
                         <outlet property="topTextfield" destination="W1n-TR-DPS" id="Pbf-3U-cCh"/>
+                        <outlet property="trailingConstraintBottomTextfield" destination="Ir3-Ei-gvz" id="AA3-ju-Lks"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

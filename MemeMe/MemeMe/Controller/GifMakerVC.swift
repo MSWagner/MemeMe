@@ -25,11 +25,16 @@ class GifMakerVC: UIViewController {
 
     // MARK: - Textfield Constraints
     @IBOutlet weak var topConstraintForTopTextfieldPortrait: NSLayoutConstraint!
-    @IBOutlet weak var bottomConstraintForBottomTextfieldPortrait: NSLayoutConstraint!
-
     @IBOutlet weak var topConstraintForTopTextfieldLandscape: NSLayoutConstraint!
-    @IBOutlet weak var bottomConstraintForBottomTextfieldLandscape: NSLayoutConstraint!
+    @IBOutlet weak var tailingConstraintTopTextfield: NSLayoutConstraint!
+    @IBOutlet weak var leadingConstraintTopTextfield: NSLayoutConstraint!
 
+    @IBOutlet weak var bottomConstraintForBottomTextfieldPortrait: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraintForBottomTextfieldLandscape: NSLayoutConstraint!
+    @IBOutlet weak var trailingConstraintBottomTextfield: NSLayoutConstraint!
+    @IBOutlet weak var leadingConstraintBottomTextfield: NSLayoutConstraint!
+
+    // MARK: - TextfieldInsetSize Property
     private var textfieldInsetSize: CGSize = CGSize(width: 0, height: 0) {
         didSet {
             topConstraintForTopTextfieldPortrait.constant += textfieldInsetSize.height - oldValue.height
