@@ -204,8 +204,8 @@ class GifMakerVC: UIViewController {
         return newImage
     }
 
-    // to crop the border because of AspectFit (cleaner meme images)
     private func getInsetSizeToCropTheBorder() -> CGSize {
+        // to crop the border because of AspectFit (cleaner meme images)
         guard let imageWidth = imageView.image?.size.width else {
             return CGSize(width: 0, height: 0)
         }
@@ -216,8 +216,8 @@ class GifMakerVC: UIViewController {
         let imageViewWidth = imageView.frame.width
         let imageViewHeight = imageView.frame.height
 
-        let widthQuotient = (imageWidth / imageViewWidth)
-        let heightQuotient = (imageHeight / imageViewHeight)
+        let widthQuotient = imageWidth / imageViewWidth
+        let heightQuotient = imageHeight / imageViewHeight
 
         let yInset: CGFloat = widthQuotient > heightQuotient ? (imageViewHeight - imageHeight / widthQuotient) / 2 : 0
         let xInset: CGFloat = heightQuotient > widthQuotient ? (imageViewWidth - imageWidth / heightQuotient) / 2 : 0

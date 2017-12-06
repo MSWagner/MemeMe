@@ -42,7 +42,7 @@ class CollectionVC: UICollectionViewController {
     }
 }
 
-// MARK: UICollectionView DataSource
+// MARK: UICollectionViewDataSource
 extension CollectionVC {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -60,7 +60,7 @@ extension CollectionVC {
     }
 }
 
-// MARK: - UICollectionView DelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension CollectionVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

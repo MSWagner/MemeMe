@@ -42,7 +42,7 @@ class TableVC: UITableViewController {
     }
 }
 
-// MARK: UITableview DataSource
+// MARK: UITableviewDataSource
 extension TableVC {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -63,7 +63,7 @@ extension TableVC {
     }
 }
 
-// MARK: - UITableview Delegates
+// MARK: - UITableviewDelegate
 extension TableVC {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
