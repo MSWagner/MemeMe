@@ -205,9 +205,11 @@ class GifMakerVC: UIViewController {
     private func cropImage(_ image: UIImage) -> UIImage {
         let yAxisImageView = imageView.frame.origin.y // Image start below the navigationbar
 
+        // insets to get a clean cut (no black border or text outside the image)
         let insetSize = getInsetSizeToCropTheBorder()
 
-        let cropRect = CGRect(x: 0 + insetSize.width, y: yAxisImageView + 1 + insetSize.height, width: imageView.frame.width - insetSize.width*2, height: imageView.frame.height - 2 - insetSize.height*2) // insets to get a clean cut
+        let cropRect = CGRect(x: 0 + insetSize.width, y: yAxisImageView + 1 + insetSize.height, width: imageView.frame.width - insetSize.width*2, height: imageView.frame.height - 2 - insetSize.height*2)
+
         let cgImage = image.cgImage?.cropping(to: cropRect)
         let newImage = UIImage(cgImage: cgImage!)
 
@@ -229,8 +231,20 @@ class GifMakerVC: UIViewController {
         let widthQuotient = imageWidth / imageViewWidth
         let heightQuotient = imageHeight / imageViewHeight
 
+        /*  If the Quotient between imageWidth/imageViewWidth and imageHeight/imageViewHeigt is different,
+            one value fit to the imageView screen and the other not (black background fill the rest), because of AspectFit.
+            A greater quotient means that the difference between the original image size and the available imageView size is greater.
+            In other words the value was the limiting factor for aspect fit into the imageView.
+            Then I use the greater quotient as shrink factor for the difference of imageView and image (from the other value) to get the black background size
+        */
+        print("widthQuotient \(widthQuotient)")
+        print("heightQuotient \(heightQuotient)")
+
         let yInset: CGFloat = widthQuotient > heightQuotient ? (imageViewHeight - imageHeight / widthQuotient) / 2 : 0
         let xInset: CGFloat = heightQuotient > widthQuotient ? (imageViewWidth - imageWidth / heightQuotient) / 2 : 0
+
+        print("yInset \(yInset)")
+
 
         return CGSize(width: xInset, height: yInset)
     }
