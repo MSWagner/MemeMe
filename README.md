@@ -2,7 +2,7 @@
 
 MemeMe is a project for the **Udacity iOS Developer Nanodegree**.
 
-The user can make a meme with top and bottom text with an image from the library or the camera. The user can share the meme, if everything is choosen.
+The user can make a meme with top and bottom text with an image from the library or the camera. The user can share the meme, if everything is choosen. Saved memes will shown in a CollectionView or a TableView.
 
 ## Prerequisites
 
